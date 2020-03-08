@@ -13,28 +13,23 @@ You will be able to main page: http://localhost:4200/home
 ## System screens
 
 <p align="center">
-<img width="1020" height="300" src="https://user-images.githubusercontent.com/12295778/76171187-3fe94780-6167-11ea-994e-a8fc58c2035c.png"></img>
+<img width="1420" height="300" src="https://user-images.githubusercontent.com/12295778/76171187-3fe94780-6167-11ea-994e-a8fc58c2035c.png"></img>
 <p align="center"> Card containing the project description.</p>
 </p>
 
 <p align="center">
 <img width="516" height="706" src="https://user-images.githubusercontent.com/12295778/76171232-ad957380-6167-11ea-8ad2-c498f7a16d4d.png"></img>
-<p align="center"> Tree showing the model's learn</p>
-</p>
-
-<p align="center">
-<img width="516" height="706" src="https://user-images.githubusercontent.com/12295778/76171232-ad957380-6167-11ea-8ad2-c498f7a16d4d.png"></img>
-<p align="center"> Form to insert the data and buttom to make a prediction.</p>
+<p align="center"> Form to submit data for a new disease prediction.</p>
 </p>
 
 <p align="center">
 <img width="1000" height="500" src="https://user-images.githubusercontent.com/12295778/76171437-40371200-616a-11ea-9dfd-f09fcfb466db.png"></img>
-<p align="center"> Result from high risk heart disease prediction and indication of the most common disease.</p>
+<p align="center"> Result for the prediction of a high risk for heart disease prediction; Also the indication of the most common diseases.</p>
 </p>
 
 <p align="center">
 <img width="900" height="350" src="https://user-images.githubusercontent.com/12295778/76171476-b3d91f00-616a-11ea-8265-b5f07b185b67.png"></img>
-<p align="center"> Result from low risk heart disease prediction.</p>
+<p align="center"> Result for the prediction of a low risk for heart disease prediction.</p>
 </p>
 
 ### Knowledge representation
