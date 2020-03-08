@@ -2,18 +2,23 @@
 ## A Random Forest model to estimate risk of heart disease
 ### Notice: this project is only for educational pruporse 
 
-This project contains a Machine Learning model deployed on a docker container using Angular as frontend and Python as beackend. The base code is forked from [delsner/flask-angular-data-science](https://github.com/delsner/flask-angular-data-science), look the credit section in this document.
+This project contains a Machine Learning model deployed on a docker container using Angular as frontend and Python as beackend. The base code is forked from [delsner/flask-angular-data-science](https://github.com/delsner/flask-angular-data-science), look the **Credits Section** in this document.
 
 The intelligent model was built using a RandomForest algorithm, the data to train the model is a set of historical data about the presence of heart disease in patients, available at [kaggle](https://www.kaggle.com/ronitf/heart-disease-uci).
 
-To run this project simple installe the docker in your computer, than execute: `docker-compose up`.
+To execute this project:
+- Install [Docker](https://www.docker.com/get-started) on you computer.
+- Then open the terminal and run the following commands:
+  - `git clone https://github.com/correiajoao/flask-angular-data-science.git`
+  - `cd flask-angular-data-science.git` 
+  - `docker-compose up`
 
-You will be able to main page: http://localhost:4200/home
+You will be able to access the main page at: http://localhost:4200/home
 
 ## System screens
 
 <p align="center">
-<img width="1420" height="300" src="https://user-images.githubusercontent.com/12295778/76171187-3fe94780-6167-11ea-994e-a8fc58c2035c.png"></img>
+<img width="1420" height="250" src="https://user-images.githubusercontent.com/12295778/76171187-3fe94780-6167-11ea-994e-a8fc58c2035c.png"></img>
 <p align="center"> Card containing the project description.</p>
 </p>
 
