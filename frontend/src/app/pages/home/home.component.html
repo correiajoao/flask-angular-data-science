@@ -1,88 +1,181 @@
 <div fxLayoutAlign="center center" fxLayout="column">
-    <h1>Iris Model - Example</h1>
-
     <div class="home__training">
-        <h3>Train Classification Model (Support Vector Machine)</h3>
-        <md-card fxLayoutAlign="center center" fxLayout="column">
-            <h4>Set Parameter for Model Training</h4>
-            <md-input-container>
-                <input
-                    mdInput
-                    name="C Parameter"
-                    placeholder="C Parameter"
-                    [(ngModel)]="svcParameters.C">
-            </md-input-container>
-            <button md-raised-button (click)="trainModel()">
-                Train model
-            </button>
-        </md-card>
+        <md-card fxLayoutAlign="left left" fxLayout="column">            
 
-        <div *ngIf="svcResult"
-             fxLayoutAlign="center center"
-             fxLayout="column">
-            <h4>Training Accuracy</h4>
-            <ngx-charts-linear-gauge
-                [view]="[300, 100]"
-                [value]="svcResult.accuracy"
-                [scheme]="colorScheme"
-                [min]="0"
-                [max]="100"
-                [units]="'% accuracy'">
-            </ngx-charts-linear-gauge>
+        <div fxLayoutAlign="center center" fxLayout="column">
+        <h1>Modelo para verificação de risco de doenças cardíacas</h1>
+        
+        <p> Esse sistema utiliza um classificador criado através do algoritmo Random Forest, capaz de verificar o nível de risco de pessoas possuirem doenças cardíacas.
+            O modelo utilizado foi treinado através de dados de pessoas saudaveis e possuidoras de doenças cardíacas. É importante realçar que esse modelo não provê diagnosticos, apenas estima 
+            o risco de uma pessoa desenvolver problemas cardíacos com base nos dados disponíveis. <b>Em caso de dúvidas consulte um especialista.</b>
+        </p>
+
+        <h4>Representação gráfica do modelo</h4>
+
+        <a href="../../assets/tree.png">Árvore de decisão e seus parâmetros</a>
         </div>
+       
+    </md-card>
     </div>
 
     <div class="home__prediction"
          fxLayoutAlign="center center"
          fxLayout="column">
-        <h3>Predict Iris classes</h3>
+        <h1>Verificar risco de doenças</h1>
 
-        <md-card fxLayoutAlign="center center" fxLayout="column">
-            <h4>Define Iris</h4>
-            <div fxLayout="row">
-                <md-input-container>
-                    <input mdInput
-                           name="Sepal width"
-                           placeholder="Sepal width"
-                           [(ngModel)]="iris.sepalWidth">
-                </md-input-container>
-                <md-input-container>
-                    <input mdInput
-                           name="Sepal length"
-                           placeholder="Sepal length"
-                           [(ngModel)]="iris.sepalLength">
-                </md-input-container>
+        <md-card fxLayoutAlign="left left" fxLayout="column">            
+            <div fxLayout="column">
+                <label>Idade</label>
+                <input type="text" placeholder="Anos" [(ngModel)]="person.Age">
             </div>
-            <div fxLayout="row">
-                <md-input-container>
-                    <input mdInput
-                           name="Petal width"
-                           placeholder="Petal width"
-                           [(ngModel)]="iris.petalWidth">
-                </md-input-container>
-                <md-input-container>
-                    <input mdInput
-                           name="Petal length"
-                           placeholder="Petal length"
-                           [(ngModel)]="iris.petalLength">
-                </md-input-container>
+
+            <h2></h2>
+            <div fxLayout="column">
+                <label>Sexo</label>
+                    <select [(ngModel)]="person.Sex">
+                        <option value="1">Masculino</option>
+                        <option value="0">Feminino</option>
+                      </select>
             </div>
-            <div>
-                <button md-raised-button (click)="predictIris()">Predict iris</button>
+            
+            <h2></h2>
+            <div fxLayout="column">
+                <label>Tipo de dor no peito</label>
+                    <select [(ngModel)]="person.ChestPain">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                      </select>
+            </div>
+            
+            <h2></h2>
+            <div fxLayout="column">
+                <label>Pressão sanguínea em descanso</label>
+                <input type="text" placeholder="mm/Hg" [(ngModel)]="person.Trestbps">
+            </div>
+
+            <h2></h2>
+            <div fxLayout="column">
+                <label>Colesterol</label>
+                <input type="text" placeholder="mg/dl" [(ngModel)]="person.Chol">
+            </div>
+
+            <h2></h2>
+            <div fxLayout="column">
+                <label>Nível de glicose em jejum maior que 120?</label>
+                <select [(ngModel)]="person.Fbs">
+                    <option value="1">Sim</option>
+                    <option value="0">Não</option>
+                  </select>
+            </div>
+
+            <h2></h2>
+            <div fxLayout="column">
+                    <label>Resultado de ECG</label>
+                    <select [(ngModel)]="person.RestEcg">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
+            </div>
+
+            <h2></h2>
+            <div fxLayout="column">
+                    <label>Valor máximo de batimentos</label>
+                    <input type="text" placeholder="bpm" [(ngModel)]="person.Thalach">
+            </div>
+
+            <h2></h2>
+            <div fxLayout="column">
+                    <label>Angina induzida por exercício?</label>
+                           <select [(ngModel)]="person.Exang">
+                            <option value="1">Sim</option>
+                            <option value="0">Não</option>
+                          </select>
+            </div>
+
+            <h2></h2>
+            <div fxLayout="column">
+                    <label>Depressão induzida pelo Teste de Estresse</label>
+                           <input type="text" placeholder="0 - 7" [(ngModel)]="person.Oldpeak">
+            </div>
+            
+            <h2></h2>
+            <div fxLayout="column">
+                    <label>Inclinação do pico no Teste de Estresse</label>
+                           <input type="text" placeholder="0 - 2" [(ngModel)]="person.Slope">
+            </div>
+
+            <h2></h2>
+            <div fxLayout="column">
+                <label>Número de vasos principais coloridos pela Fluoroscopía</label>
+                <select [(ngModel)]="person.Ca">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+            </div>
+
+            <h2></h2>
+            <div fxLayout="column">
+                <label>Thalassemia</label>
+                    <option value="" disabled selected hidden>Escolha um valor ...</option>
+                    <select [(ngModel)]="person.Thal">
+                        <option value="3">Normal</option>
+                        <option value="6">Defeito corrigido</option>
+                        <option value="7">Defeito reversível</option>
+                      </select>
+            </div>
+            
+            <h2></h2>
+            <div  fxLayoutAlign="center center">
+                <button md-raised-button (click)="predictDisease()">Verificar risco de doença cardíaca</button>
             </div>
         </md-card>
 
-        <div *ngIf="probabilityPredictions"
-             fxLayoutAlign="center center"
-             fxLayout="column"
-             class="home__chart-container">
-            <h4>Prediction Result</h4>
-            <ngx-charts-pie-chart
-                [results]="probabilityPredictions"
-                [scheme]="colorScheme"
-                [labels]="true"
-                [legend]="true">
-            </ngx-charts-pie-chart>
+        <div *ngIf=modelResult
+        fxLayoutAlign="center center"
+        fxLayout="column">
+       <h4>Parâmetros do modelo</h4>
+       <ngx-charts-linear-gauge 
+           [view]="[300, 100]"
+           [value]="modelResult.accuracy"
+           [scheme]="colorScheme"
+           [min]="0"
+           [max]="100"
+           [units]="'% precisão'">
+        </ngx-charts-linear-gauge>
+        </div>
+        
+        <div *ngIf="diseasePrediction.value == 0">
+            <md-card fxLayoutAlign="center center" fxLayout="column">            
+
+            <h4>Estimativa de risco</h4>
+            <h1>Baixo risco de doença cardíaca</h1>
+            <p>Em geral pessoas com os parâmetros fornecidos tem menos risco de sofrer de doeças cardíacas.</p>
+            </md-card>
+        </div>
+
+        <div *ngIf="diseasePrediction.value == 1">
+            <md-card fxLayoutAlign="center center" fxLayout="column">            
+
+            <h4>Estimativa de risco</h4>
+            <h1>Alto risco de doença cardíaca</h1>
+            <p>Em geral pessoas com os parâmetros fornecidos tem maior risco de sofrer de doeças cardíacas. Alguns exemplos de doenças são:</p>
+            <ul>
+            <li>Hipertensão;</li>
+                <li>Infarto agudo do miocárdio;</li>
+                    <li>Angina do peito;</li>
+                        <li>Doenças nas válvulas cardíacas;</li>
+                            <li>Doenças cardíacas congênitas;</li>
+                                <li> Endocardite;</li>
+                                    <li>  Arritmias cardíacas;</li>
+                                        <li>  Miocardite;</li>
+                                            <li>  Tumores no coração.</li>
+            </ul>
+        </md-card>
         </div>
     </div>
 </div>

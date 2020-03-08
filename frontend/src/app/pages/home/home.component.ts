@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {IrisService} from "./iris.service";
+import {PersonService} from "./person.service";
 import {
-    Iris,
-    ProbabilityPrediction,
-    SVCParameters,
-    SVCResult
+    DiseasePrediction,
+    ModelParameters,
+    ModelResult,
+    Person,
 } from "./types";
 
 @Component({
@@ -14,32 +14,45 @@ import {
 })
 export class HomeComponent implements OnInit {
 
-    public svcParameters: SVCParameters = new SVCParameters();
-    public svcResult: SVCResult;
-    public iris: Iris = new Iris();
-    public probabilityPredictions: ProbabilityPrediction[];
+    public modelParameters: ModelParameters = new ModelParameters();
+    public modelResult: ModelResult = new ModelResult();
+    
+    public person: Person = new Person();
+    public diseasePrediction: DiseasePrediction = new DiseasePrediction();
 
     // graph styling
     public colorScheme = {
         domain: ['#1a242c', '#e81746', '#e67303', '#f0f0f0']
     };
 
-    constructor(private irisService: IrisService) {
+    constructor(private personService: PersonService) {
     }
 
     ngOnInit() {
     }
 
     public trainModel() {
-        this.irisService.trainModel(this.svcParameters).subscribe((svcResult) => {
-            this.svcResult = svcResult;
+        this.personService.trainModel(this.modelParameters).subscribe((result) => {
+            this.modelResult = result;
         });
     }
 
-    public predictIris() {
-        this.irisService.predictIris(this.iris).subscribe((probabilityPredictions) => {
-            this.probabilityPredictions = probabilityPredictions;
-        });
+    public predictDisease() {
+        if (this.modelResult.accuracy == 0){
+            this.personService.trainModel(this.modelParameters).subscribe((result) => {
+                this.modelResult = result;   
+                
+                this.personService.predictDisease(this.person).subscribe((result) => {
+                    this.diseasePrediction = result;
+                    console.log(this.diseasePrediction)
+                });
+            });
+        }else{
+            this.personService.predictDisease(this.person).subscribe((result) => {
+                this.diseasePrediction = result;
+                console.log(this.diseasePrediction)
+            });
+        }
     }
 
 }

@@ -1,19 +1,28 @@
-export class Iris {
-    sepalLength: number = 5.0;
-    sepalWidth: number = 3.5;
-    petalLength: number = 2.5;
-    petalWidth: number = 1.2;
+
+export class Person {
+    Age: number = 0;
+    Sex: number = 0;
+    ChestPain: number = 0;
+    Trestbps: number = 0;
+    Chol: number = 0;
+    Fbs: number = 0;
+    RestEcg: number = 0;
+    Thalach: number = 0;
+    Exang: number = 0;
+    Oldpeak: number = 0;
+    Slope: number = 0;
+    Ca: number = 0;
+    Thal: number = 3;
 }
 
-export class ProbabilityPrediction {
-    name: string;
-    value: number;
+export class DiseasePrediction {
+    value: string;
 }
 
-export class SVCParameters {
-    C: number = 2.0;
+export class ModelParameters {
+    deep: number = 15;
 }
 
-export class SVCResult {
-    accuracy: number;
+export class ModelResult {
+    accuracy: number = 0;
 }
