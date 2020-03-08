@@ -1,51 +1,50 @@
-# Data Science Web Application Tutorial
+# Artificial Intelligence - PPGI 2019.2
+## A Random Forest model to estimate risk of heart disease
+### Notice: this project is only for educational pruporse 
+
+This project contains a Machine Learning model deployed on a docker container using Angular as frontend and Python as beackend. The base code is forked from [delsner/flask-angular-data-science](https://github.com/delsner/flask-angular-data-science), look the credit section in this document.
+
+The intelligent model was built using a RandomForest algorithm, the data to train the model is a set of historical data about the presence of heart disease in patients, available at [kaggle](https://www.kaggle.com/ronitf/heart-disease-uci).
+
+To run this project simple installe the docker in your computer, than execute: `docker-compose up`.
+
+You will be able to main page: http://localhost:4200/home
+
+## System screens
+
+<p align="center">
+<img width="1020" height="300" src="https://user-images.githubusercontent.com/12295778/76171187-3fe94780-6167-11ea-994e-a8fc58c2035c.png"></img>
+<p align="center"> Card containing the project description.</p>
+</p>
+
+<p align="center">
+<img width="516" height="706" src="https://user-images.githubusercontent.com/12295778/76171232-ad957380-6167-11ea-8ad2-c498f7a16d4d.png"></img>
+<p align="center"> Tree showing the model's learn</p>
+</p>
+
+<p align="center">
+<img width="516" height="706" src="https://user-images.githubusercontent.com/12295778/76171232-ad957380-6167-11ea-8ad2-c498f7a16d4d.png"></img>
+<p align="center"> Form to insert the data and buttom to make a prediction.</p>
+</p>
+
+<p align="center">
+<img width="1000" height="500" src="https://user-images.githubusercontent.com/12295778/76171437-40371200-616a-11ea-9dfd-f09fcfb466db.png"></img>
+<p align="center"> Result from high risk heart disease prediction and indication of the most common disease.</p>
+</p>
+
+<p align="center">
+<img width="900" height="350" src="https://user-images.githubusercontent.com/12295778/76171476-b3d91f00-616a-11ea-8265-b5f07b185b67.png"></img>
+<p align="center"> Result from low risk heart disease prediction.</p>
+</p>
+
+### Knowledge representation
+
+On the figure containing the project description, there is a link from the model's knowledge representation. This is a big file, so follows the link for the figure (https://github.com/correiajoao/flask-angular-data-science/blob/master/frontend/src/assets/tree.png).
+
+
+# Credits
+## Data Science Web Application Tutorial
 
 This repository is meant to demonstrate the use of Flask and Angular to build a simple, but state-of-the-art, web application which can be used for POCs.
+
 Read the corresponding Medium article [here](https://medium.com/@dvelsner/deploying-a-simple-machine-learning-model-in-a-modern-web-application-flask-angular-docker-a657db075280).
-
-## Clone/Fork repository
-
-First fork or clone this repo:
-
-e.g. `git clone https://github.com/delsner/flask-angular-data-science.git`
- 
-
-## Build images and run containers with docker-compose
-
-After cloning the repository go inside the project folder:
-
-`cd flask-angular-data-science`
-
-Run `docker-compose up` which will start a Flask web application for the backend API (default port `8081`) and an Angular frontend served through a webpack development web server (default port `4200`).
-
-
-## Access your app
-
-In your browser navigate to: `http://localhost:4200` (or whatever port you defined for the frontend in `docker-compose.yml`).
-
-For testing your backend API I recommend using [Postman](https://www.getpostman.com/).
-  
-
-## Working __without__ docker 
-
-I highly recommend the use of docker and docker-compose as it is far simpler to get started than to run all of the following manually.
-
-
-### Backend development
-
-Navigate inside the backend directory: `cd backend`
-
-Install pip dependencies: `pip install -r requirements.txt`
-
-Run `python app.py` in backend root (will watch files and restart server on port `8081` on change).
-
-### Frontend development
-
-Navigate inside the frontend directory: `cd frontend`
-
-Assure you have [Nodejs](https://nodejs.org/en/), [Yarn](https://yarnpkg.com/en/docs/install) and the [angular-cli](https://cli.angular.io/) installed.
-
-Install npm dependencies: `yarn install --pure-lockfile` 
-
-Run `yarn start` in frontend root (will watch files and restart dev-server on port `4200` on change).
-All calls made to `/api` will be proxied to backend server (default port for backend `8081`), this can be changed in `proxy.conf.json`.
